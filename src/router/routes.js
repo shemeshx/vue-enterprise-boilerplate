@@ -80,6 +80,23 @@ export default [
     },
   },
   {
+    path: '/playground',
+    name: 'playground',
+    component: () => lazyLoadView(import('@views/playgroundView.vue')),
+    meta: {
+      beforeResolve(routeTo, routeFrom, next) {
+        // If the user is not logged in
+        if (!store.getters['auth/loggedIn']) {
+          // Redirect to the home page instead
+          next({ name: 'home' })
+        } else {
+          // Continue to the playgroundView page
+          next()
+        }
+      },
+    },
+  },
+  {
     path: '/404',
     name: '404',
     component: require('@views/_404.vue').default,
@@ -94,6 +111,7 @@ export default [
     path: '*',
     redirect: '404',
   },
+
 ]
 
 // Lazy-loads view components, but with better UX. A loading view

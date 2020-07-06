@@ -4,6 +4,26 @@ const appConfig = require('./src/app.config')
 module.exports = {
   // https://github.com/neutrinojs/webpack-chain/tree/v4#getting-started
   chainWebpack(config) {
+
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .loader('vue-loader')
+      .tap(options => {
+        options.transformAssetUrls = {
+          img: 'src',
+          image: 'xlink:href',
+          'b-avatar': 'src',
+          'b-img': 'src',
+          'b-img-lazy': ['src', 'blank-src'],
+          'b-card': 'img-src',
+          'b-card-img': 'src',
+          'b-card-img-lazy': ['src', 'blank-src'],
+          'b-carousel-slide': 'img-src',
+          'b-embed': 'src'
+        }
+      })
+
     // We provide the app's title in Webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
     config.set('name', appConfig.title)
@@ -22,6 +42,7 @@ module.exports = {
         !process.env.VUE_APP_TEST &&
         'warning'
     )
+
   },
   css: {
     // Enable CSS source maps.

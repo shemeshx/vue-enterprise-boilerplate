@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import router from '@router'
 import store from '@state/store'
+import {ClientTable} from 'vue-tables-2';
+import { BootstrapVue } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import App from './app.vue'
 
 // Globally register all `_base`-prefixed components
@@ -20,6 +24,11 @@ const app = new Vue({
   store,
   render: (h) => h(App),
 }).$mount('#app')
+
+
+
+Vue.use(ClientTable);
+Vue.use(BootstrapVue);
 
 // If running e2e tests...
 if (process.env.VUE_APP_TEST === 'e2e') {

@@ -12,6 +12,7 @@ module.exports = {
     // Override rules to allow linting of CSS modules
     // https://github.com/pascalduez/stylelint-config-css-modules
     'stylelint-config-css-modules',
+    'stylelint-config-recommended'
   ],
   plugins: [
     // Bring in some extra rules for SCSS
