@@ -1,3 +1,13 @@
+# Idan's fork update with Playground!!!
+In this forked project I added playground view and component to show table of users.
+Only if you logged in you can see the users.
+To run and load the project please clone this repo and launch with "npx vue-cli-service serve" command.
+I used bootstrap for Vue to show the table components.
+
+Thanks!
+
+
+
 # Vue Enterprise Boilerplate
 
 [![CircleCI](https://circleci.com/gh/chrisvfritz/vue-enterprise-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/chrisvfritz/vue-enterprise-boilerplate/tree/master)
